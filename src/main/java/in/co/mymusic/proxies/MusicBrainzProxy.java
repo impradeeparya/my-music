@@ -24,13 +24,15 @@ public class MusicBrainzProxy {
 
   private String ARTIST_URL;
 
+  private String urlParams = "&inc=url-rels+release-groups";
+
   @PostConstruct
   public void init() {
     ARTIST_URL = hostUrl + "artist/";
   }
 
   public MusicBrainzResponse fetchByMbid(String mbid) {
-    String url = ARTIST_URL + mbid;
+    String url = ARTIST_URL + mbid + "?" + urlParams;
     ResponseEntity<JsonNode> responseEntity =
         apiRequester.trigger(url, null, JsonNode.class, HttpMethod.GET);
     return ResponseParser.musicBrainz.apply(responseEntity.getBody());

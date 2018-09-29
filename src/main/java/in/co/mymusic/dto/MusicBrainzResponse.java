@@ -8,7 +8,7 @@ public class MusicBrainzResponse {
   private String sortName;
   private Object ipis;
   private Object endArea;
-  private Object releaseGroups;
+  private List<MusicBrainzReleaseGroup> releaseGroups;
   private String country;
   private String typeId;
   private String genderId;
@@ -58,11 +58,11 @@ public class MusicBrainzResponse {
     return this;
   }
 
-  public Object getReleaseGroups() {
+  public List<MusicBrainzReleaseGroup> getReleaseGroups() {
     return releaseGroups;
   }
 
-  public MusicBrainzResponse setReleaseGroups(Object releaseGroups) {
+  public MusicBrainzResponse setReleaseGroups(List<MusicBrainzReleaseGroup> releaseGroups) {
     this.releaseGroups = releaseGroups;
     return this;
   }
